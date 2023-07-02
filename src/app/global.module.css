@@ -1,0 +1,9 @@
+.verticalCenter {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.filterWhite{
+    filter: brightness(0) invert(1);
+}

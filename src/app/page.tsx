@@ -1,95 +1,52 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
-export default function Home() {
+import React from "react";
+import styles from "./global.module.css";
+import { Layout, Space, Row, Col, Typography } from "antd";
+import TravelInput from "../components/TravelInput";
+
+const { Content } = Layout;
+const { Title, Text } = Typography;
+
+export default function landing() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <main>
+      <Space direction="vertical" style={{ width: "100%" }}>
+        <Layout
+          style={{
+            minHeight: "100vh",
+          }}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <Content
+            style={{
+              position: "absolute",
+              minHeight: "100vh",
+              width: "100vw",
+              backgroundImage: "url(./landing-bg-2.jpg)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "100% 100%",
+              filter: "brightness(70%)",
+            }}
+          ></Content>
+          <Content className={styles.verticalCenter}>
+            <Row className={styles.verticalCenter}>
+              <Col span={6}></Col>
+              <Col flex={14}>
+                <Row className={styles.verticalCenter} style={{ marginBottom: "16px" }}>
+                  <Col>
+                    <Title style={{ display: "inline", marginRight: "10px", color: "white" }}>Travel Itinerary</Title>
+                    <Text style={{ color: "#E5E4E2", fontSize: "12px" }} italic>
+                      Powered by ChatGPT AI
+                    </Text>
+                  </Col>
+                </Row>
+                <TravelInput />
+              </Col>
+              <Col span={6}></Col>
+            </Row>
+          </Content>
+        </Layout>
+      </Space>
     </main>
-  )
+  );
 }
